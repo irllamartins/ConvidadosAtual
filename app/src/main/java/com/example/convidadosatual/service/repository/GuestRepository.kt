@@ -57,6 +57,33 @@ class GuestRepository private constructor(context: Context){
         return list
     }
 
+    fun get(id: Int):GuestModel?{
+        var guest: GuestModel?=null
+        return try{
+            val db = mGuestDataBaseHelper.readableDatabase
+            val contentValues = ContentValues()
+
+            val projection = arrayOf(DataBaseConstants.GUEST.)
+
+            //captura o id da class guest
+            val selection = DataBaseConstants.GUEST.COLUMNS.ID+" = ?"
+            //lista de capturas de id de pessoas
+            val args = arrayOf(guest.id.toString())
+
+            db.query(DataBaseConstants.GUEST.TABLE_NAME,
+            colunas,
+            selection,
+                args,
+                null,
+                null,
+                null
+            )
+
+            guest
+        }catch (e:Exception){
+            guest
+        }
+    }
     //CRUD
 
     //responsavel por atualizar
@@ -80,7 +107,19 @@ class GuestRepository private constructor(context: Context){
     }
 
     //responsavel por atualizar
-    fun delete(guest: GuestModel) {
+    fun delete(id: Int):Boolean {
+        return try{
+            val db = mGuestDataBaseHelper.writableDatabase
 
+            //captura o id da class guest
+            val selection = DataBaseConstants.GUEST.COLUMNS.ID+" = ?"
+            //lista de capturas de id de pessoas
+            val args = arrayOf(id.toString())
+
+            db.delete(DataBaseConstants.GUEST.TABLE_NAME,selection,args)
+            true
+        }catch (e:Exception){
+            false
+        }
     }
 }
