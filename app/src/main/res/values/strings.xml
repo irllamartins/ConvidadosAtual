@@ -16,5 +16,9 @@
     <string name="button_text_save">Salvar</string>
     <string name="button_text_presents">Presente</string>
     <string name="button_text_absents">Ausente</string>
+    <string name="guest_title_remove">Remoção de convidado</string>
+    <string name="guest_mensage_remove">Deseja remover convidado da lista?</string>
+    <string name="guest_remove">Remover</string>
+    <string name="guest_cancel">Cancelar</string>
 
 </resources>

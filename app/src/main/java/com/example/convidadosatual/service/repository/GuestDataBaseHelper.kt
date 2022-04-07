@@ -3,11 +3,12 @@ package com.example.convidadosatual.service.repository
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.convidadosatual.service.DataBaseConstants
+import com.example.convidadosatual.service.constants.DataBaseConstants
 
 class GuestDataBaseHelper(context: Context): SQLiteOpenHelper(context,DATABASE_NAME,null, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
-        TODO("Not yet implemented")
+        //Cria tabela(quando alterar linha/coluna precisará reinstalar o app)
+        db?.execSQL(CREATE_TABLE_GUEST)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {

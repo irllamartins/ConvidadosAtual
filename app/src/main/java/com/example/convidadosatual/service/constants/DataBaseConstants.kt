@@ -1,4 +1,4 @@
-package com.example.convidadosatual.service
+package com.example.convidadosatual.service.constants
 
 /**
  * Todas as constantes utilizadas no banco de dados
